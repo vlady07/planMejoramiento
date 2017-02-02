@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditConcesionarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditConcesionarioLabel_nit}" for="nit" />
+                    <h:inputText id="nit" value="#{concesionarioController.selected.nit}" title="#{bundle.EditConcesionarioTitle_nit}" required="true" requiredMessage="#{bundle.EditConcesionarioRequiredMessage_nit}"/>
+                    <h:outputLabel value="#{bundle.EditConcesionarioLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{concesionarioController.selected.nombre}" title="#{bundle.EditConcesionarioTitle_nombre}" required="true" requiredMessage="#{bundle.EditConcesionarioRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditConcesionarioLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{concesionarioController.selected.telefono}" title="#{bundle.EditConcesionarioTitle_telefono}" required="true" requiredMessage="#{bundle.EditConcesionarioRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundle.EditConcesionarioLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{concesionarioController.selected.direccion}" title="#{bundle.EditConcesionarioTitle_direccion}" required="true" requiredMessage="#{bundle.EditConcesionarioRequiredMessage_direccion}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{concesionarioController.update}" value="#{bundle.EditConcesionarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditConcesionarioViewLink}"/>
+                <br />
+                <h:commandLink action="#{concesionarioController.prepareList}" value="#{bundle.EditConcesionarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditConcesionarioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
